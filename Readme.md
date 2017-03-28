@@ -48,24 +48,46 @@ const Gun = require('gun/gun')
 require('watergun')(Gun)
 ```
 
-## API extensions
+## API chain extensions
 
-- `each`
+Also available as utility functions
+
 - `count`
-
+- `date`
+- `each`
+- `fields`
+- `local`
+- `putAt`
+- `setAt`
+- `soul`
+- `timed`
+- `valueAt`
+- `value`
 
 ### each
 
-Map and iterate over every value (`val`) of a node.
-Second argument `op` is optional but can be used to override the default map operation `val`
+Map and iterate over every value of a node.
+The second options argument can be called with an `op` option, which
+can be used to override the default map operation `val`.
+Remaining arguments can contain callback function etc.
 
 `each(node, {op}, ...args)` or `node.each({op}, ...args)`
 
-Examples:
+**Examples**
+
+Utility function
+
+```js
+each(node, {op: 'value'})
+```
+
+Chaining
 
 ```js
 node.each({op: 'value'})
 ```
+
+Fine control
 
 ```js
 node.each({op: 'value'}, (data) => console.log(data))
@@ -103,12 +125,25 @@ Retrieve the node value (without `_` metadata)
 
 `value(cb, opt)` or `node.value()`
 
+```js
+mark.value((data) => {
+  t.is(data.name, 'mark')
+})
+```
+
 ### valueAt
 
 Retrieve value at the given `path` (no metadata)
 Shorthand for `node.path('my/path').value(cb)`
 
 `valueAt(node, path, cb, opt)` or `node.valueAt(path, cb)`
+
+```js
+mark.putAt(_path, amber)
+mark.valueAt(_path, (spouse) => {
+  t.is(spouse.name, 'amber')
+})
+```
 
 ### valAt
 
@@ -117,11 +152,25 @@ Shorthand for `node.path('my/path').val(cb)`
 
 `valAt(node, path, cb, opt)` or `node.valAt(path, cb)`
 
+```js
+mark.putAt(_path, amber)
+mark.valAt(_path, (spouse) => {
+  t.is(spouse.name, 'amber')
+})
+```
+
 ### setAt
 
 `set` value at the given `path`. Shorthand for `node.path('my/path').set(value)`
 
 `setAt(node, path, cb, opt)` or `node.setAt(path, cb, opt)`
+
+```js
+mark.setAt(_path, amber)
+mark.valueAt(_path, (spouse) => {
+  t.is(spouse.name, 'amber')
+})
+```
 
 ### putAt
 
@@ -129,8 +178,20 @@ Shorthand for `node.path('my/path').val(cb)`
 
 `.putAt(path, cb, opt)`
 
-###
+```js
+mark.putAt(_path, amber)
+mark.valueAt(_path, (spouse) => {
+  t.is(spouse.name, 'amber')
+})
+```
+
+### localFields
+
 `localFields()` - get list of *local* field names (keys) in the bucket
+
+```js
+let fieldNames = mark.localFields()
+```
 
 ### fields
 
@@ -138,13 +199,28 @@ Retrieve the names of all fields of the node value (ie. Object keys)
 
 `node.fields(cb)` or `fields(node, cb)`
 
+```js
+mark.fields((keys) => {
+  console.log(keys)
+})
+```
+
 ### soul
 
 `soul()` retrieve the soul (ID) of the node
 
+```js
+let id = mark.soul()
+```
+
 ### print
 
 `print(label)` - print value to console (no meta). Note: You can set `Gun.log`, by default: `console.log`
+
+```js
+amber.print()
+mark.print('mark') // with label
+```
 
 ### Useful internal Gun functions
 
