@@ -1,6 +1,6 @@
 # Chaingun
 
-![Chaingun](https://github.com/kristianmandrup/gun-edge/tree/master/chaingun.png)
+![Chaingun](https://github.com/kristianmandrup/chaingun/raw/master/chaingun.png)
 
 Common [Gun.js](http://gun.js.org/) chain extensions and utility functions.
 
