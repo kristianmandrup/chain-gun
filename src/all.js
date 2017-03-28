@@ -8,11 +8,26 @@ import {
   addEach
 } from './each'
 import {
+  addFields
+} from './fields'
+import {
   addPrint
 } from './print'
 import {
+  addLive
+} from './live'
+import {
+  addTimed
+} from './timed'
+import {
   addLocal
 } from './local'
+import {
+  addMapReduce
+} from './map-reduce'
+import {
+  addNo
+} from './no'
 import {
   addRecurse
 } from './recurse'
@@ -29,12 +44,18 @@ import {
   addValue
 } from './value'
 
+
 const chains = {
   addCount,
   addDate,
   addEach,
+  addFields,
   addPrint,
+  addLive,
+  addTimed,
   addLocal,
+  addMapReduce,
+  addNo,
   addPut,
   addRecurse,
   addSet,
@@ -59,10 +80,16 @@ export function add(Gun, ...names) {
 }
 
 const allNames = [
+  'count',
   'date',
   'each',
+  'fields',
   'print',
+  'live',
+  'timed',
   'local',
+  'mapReduce',
+  'no',
   'put',
   'recurse',
   'set',

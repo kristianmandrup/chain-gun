@@ -6,7 +6,7 @@ Common [Gun.js](http://gun.js.org/) chain extensions and utility functions.
 
 ## Install
 
-`npm i -S chaingun`
+`npm i -S chain-gun`
 
 ## Use
 
@@ -16,7 +16,7 @@ To add all chain methods:
 
 ```js
 import Gun from 'gun/gun'
-import chain from 'chaingun'
+import chain from 'chain-gun'
 chain(Gun)
 ```
 
@@ -25,7 +25,7 @@ To control which chain methods to add:
 ```js
 import {
   add
-} from 'chaingun'
+} from 'chain-gun'
 add(Gun, 'date', 'fields')
 ```
 
@@ -35,7 +35,7 @@ Import individual chain modules
 import {
   print,
   addPrint
-} from 'watergun/dist/print'
+} from 'chain-gun/dist/print'
 addInspect(Gun.chain)
 ```
 
@@ -45,7 +45,7 @@ Using `require`
 
 ```js
 const Gun = require('gun/gun')
-require('watergun')(Gun)
+require('chain-gun')(Gun)
 ```
 
 ## API chain extensions
