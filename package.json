@@ -1,7 +1,7 @@
 {
   "name": "chaingun",
   "version": "0.1.0",
-  "description": "Gun chain API extensions",
+  "description": "Gun.js chain API extensions",
   "main": "edge/index.js",
   "scripts": {
     "test": "ava",
