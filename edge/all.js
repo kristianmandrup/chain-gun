@@ -3,22 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addValue = exports.addSet = exports.addRecurse = exports.addPut = exports.addNo = exports.addMapReduce = exports.addLocal = exports.addTimed = exports.addLive = exports.addPrint = exports.addFields = exports.addEach = exports.addDate = exports.addCsp = exports.addObservable = exports.addPromise = undefined;
+exports.addValue = exports.addSet = exports.addRecurse = exports.addPut = exports.addLocal = exports.addPrint = exports.addEach = exports.addDate = undefined;
 exports.add = add;
 
 exports.default = function (Gun) {
   return add.apply(undefined, [Gun].concat(allNames));
 };
-
-var _promise = require('./promise');
-
-var _promise2 = _interopRequireDefault(_promise);
-
-var _observable = require('./observable');
-
-var _observable2 = _interopRequireDefault(_observable);
-
-var _csp = require('./channel/csp');
 
 var _count = require('./count');
 
@@ -50,14 +40,7 @@ var _soul = require('./soul');
 
 var _value = require('./value');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import { addEdge } from './edge'
-
 var chains = {
-  addPromise: _promise2.default,
-  addObservable: _observable2.default,
-  addCsp: _csp.addCsp,
   addCount: _count.addCount,
   addDate: _date.addDate,
   addEach: _each.addEach,
@@ -74,14 +57,6 @@ var chains = {
   addSoul: _soul.addSoul,
   addValue: _value.addValue
 };
-// import {
-//   addOut
-// } from './out'
-
-// import {
-//   addFilter
-// } from './filter'
-
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -103,24 +78,12 @@ function add(Gun) {
   return Gun;
 }
 
-var allNames = ['promise', 'observable', 'csp', 'date', 'each', 'fields',
-// 'filter',
-'print', 'live', 'timed', 'local', 'mapReduce', 'no',
-// 'out',
-'put', 'recurse', 'set', 'soul', 'value'];
+var allNames = ['count', 'date', 'each', 'fields', 'print', 'live', 'timed', 'local', 'mapReduce', 'no', 'put', 'recurse', 'set', 'soul', 'value'];
 
-exports.addPromise = _promise2.default;
-exports.addObservable = _observable2.default;
-exports.addCsp = _csp.addCsp;
 exports.addDate = _date.addDate;
 exports.addEach = _each.addEach;
-exports.addFields = _fields.addFields;
 exports.addPrint = _print.addPrint;
-exports.addLive = _live.addLive;
-exports.addTimed = _timed.addTimed;
 exports.addLocal = _local.addLocal;
-exports.addMapReduce = _mapReduce.addMapReduce;
-exports.addNo = _no.addNo;
 exports.addPut = _put.addPut;
 exports.addRecurse = _recurse.addRecurse;
 exports.addSet = _set.addSet;
