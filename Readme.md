@@ -1,5 +1,7 @@
 # Chaingun
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/chain-gun.svg)](https://greenkeeper.io/)
+
 ![Chaingun](https://github.com/kristianmandrup/chaingun/raw/master/chaingun.png)
 
 Common [Gun.js](http://gun.js.org/) chain extensions and utility functions.
