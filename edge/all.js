@@ -1,13 +1,13 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.addValue = exports.addSet = exports.addRecurse = exports.addPut = exports.addLocal = exports.addPrint = exports.addEach = exports.addDate = undefined;
 exports.add = add;
 
 exports.default = function (Gun) {
-  return add.apply(undefined, [Gun].concat(allNames));
+    return add.apply(undefined, [Gun].concat(allNames));
 };
 
 var _count = require('./count');
@@ -19,8 +19,6 @@ var _each = require('./each');
 var _fields = require('./fields');
 
 var _print = require('./print');
-
-var _live = require('./live');
 
 var _timed = require('./timed');
 
@@ -41,44 +39,43 @@ var _soul = require('./soul');
 var _value = require('./value');
 
 var chains = {
-  addCount: _count.addCount,
-  addDate: _date.addDate,
-  addEach: _each.addEach,
-  addFields: _fields.addFields,
-  addPrint: _print.addPrint,
-  addLive: _live.addLive,
-  addTimed: _timed.addTimed,
-  addLocal: _local.addLocal,
-  addMapReduce: _mapReduce.addMapReduce,
-  addNo: _no.addNo,
-  addPut: _put.addPut,
-  addRecurse: _recurse.addRecurse,
-  addSet: _set.addSet,
-  addSoul: _soul.addSoul,
-  addValue: _value.addValue
+    addCount: _count.addCount,
+    addDate: _date.addDate,
+    addEach: _each.addEach,
+    addFields: _fields.addFields,
+    addPrint: _print.addPrint,
+    addTimed: _timed.addTimed,
+    addLocal: _local.addLocal,
+    addMapReduce: _mapReduce.addMapReduce,
+    addNo: _no.addNo,
+    addPut: _put.addPut,
+    addRecurse: _recurse.addRecurse,
+    addSet: _set.addSet,
+    addSoul: _soul.addSoul,
+    addValue: _value.addValue
 };
 
 function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function add(Gun) {
-  for (var _len = arguments.length, names = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    names[_key - 1] = arguments[_key];
-  }
+    for (var _len = arguments.length, names = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        names[_key - 1] = arguments[_key];
+    }
 
-  names.forEach(function (name) {
-    var nameCap = capitalize(name);
-    var fun = 'add' + nameCap;
-    chains[fun]({
-      chain: Gun.chain,
-      Gun: Gun
+    names.forEach(function (name) {
+        var nameCap = capitalize(name);
+        var fun = 'add' + nameCap;
+        chains[fun]({
+            chain: Gun.chain,
+            Gun: Gun
+        });
     });
-  });
-  return Gun;
+    return Gun;
 }
 
-var allNames = ['count', 'date', 'each', 'fields', 'print', 'live', 'timed', 'local', 'mapReduce', 'no', 'put', 'recurse', 'set', 'soul', 'value'];
+var allNames = ['count', 'date', 'each', 'fields', 'print', 'timed', 'local', 'mapReduce', 'no', 'put', 'recurse', 'set', 'soul', 'value'];
 
 exports.addDate = _date.addDate;
 exports.addEach = _each.addEach;
