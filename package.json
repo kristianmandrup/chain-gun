@@ -1,6 +1,6 @@
 {
   "name": "chain-gun",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Gun.js chain API extensions",
   "main": "edge/index.js",
   "scripts": {
